@@ -27,6 +27,7 @@ local logout = hl.bind(create_keybind(mainMod, "M"), hl.dsp.exec_cmd(logoutCmd))
 local launchAppMenu     = hl.bind(create_keybind(mainMod, "A"), hl.dsp.exec_cmd(globals.appMenu))
 local launchCmdMenu     = hl.bind(create_keybind(mainMod, "R"), hl.dsp.exec_cmd(globals.cmdMenu))
 local launchTerminal    = hl.bind(create_keybind(mainMod, "Q"), hl.dsp.exec_cmd(globals.terminal))
+local launchProjecs     = hl.bind(create_keybind(mainMod, "P"), hl.dsp.exec_cmd(globals.projectsTerminal))
 local launchFileManager = hl.bind(create_keybind(mainMod, "E"), hl.dsp.exec_cmd(globals.fileManager))
 local screenshotBind    = hl.bind(create_keybind("Print"),      hl.dsp.exec_cmd(globals.screenshotTool))
 
