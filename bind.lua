@@ -53,11 +53,14 @@ end
 
 -- # Special Workspaces
 -- Obsidian
-hl.bind(create_keybind(mainMod, "O"), hl.dsp.workspace.toggle_special("obsidian"))
-hl.bind(create_keybind(mainMod, "SHIFT", "O"), hl.dsp.window.move({ workspace = "special:obsidian" }))
+hl.bind(create_keybind(mainMod, "O"), hl.dsp.focus({ workspace = "name:obsidian" }))
+hl.bind(create_keybind(mainMod, "SHIFT", "O"), hl.dsp.window.move({ workspace = "name:obsidian" }))
 -- Claude
-hl.bind(create_keybind(mainMod, "C"), hl.dsp.workspace.toggle_special("claude"))
-hl.bind(create_keybind(mainMod, "SHIFT", "C"), hl.dsp.window.move({ workspace = "special:claude" }))
+hl.bind(create_keybind(mainMod, "C"), hl.dsp.focus({ workspace = "name:claude" }))
+hl.bind(create_keybind(mainMod, "SHIFT", "C"), hl.dsp.window.move({ workspace = "name:claude" }))
 -- Discord
-hl.bind(create_keybind(mainMod, "D"), hl.dsp.workspace.toggle_special("discord"))
-hl.bind(create_keybind(mainMod, "SHIFT", "D"), hl.dsp.window.move({ workspace = "special:discord" }))
+hl.bind(create_keybind(mainMod, "D"), hl.dsp.focus({ workspace = "name:discord" }))
+hl.bind(create_keybind(mainMod, "SHIFT", "D"), hl.dsp.window.move({ workspace = "name:discord" }))
+-- Browser
+hl.bind(create_keybind(mainMod, "B"), hl.dsp.focus({ workspace = "name:browser" }))
+hl.bind(create_keybind(mainMod, "SHIFT", "B"), hl.dsp.window.move({ workspace = "name:browser" }))
