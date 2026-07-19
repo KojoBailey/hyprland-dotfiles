@@ -13,6 +13,7 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("fcitx5 -d")
 	hl.exec_cmd("quickshell")
 	hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("swayidle before-sleep '" .. globals.lockScreen .. "'")
 end)
 
 hl.env("XDG_SESSION_TYPE", "wayland")
