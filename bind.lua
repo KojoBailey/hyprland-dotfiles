@@ -22,6 +22,7 @@ local brightnessDown = hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightn
 local logoutCmd = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
 local logout = hl.bind(create_keybind(mainMod, "M"), hl.dsp.exec_cmd(logoutCmd))
 	:set_enabled(false)
+local lockScreen = hl.bind("XF86Favorites", hl.dsp.exec_cmd(globals.lockScreen))
 
 -- # Launching Apps
 local launchAppMenu        = hl.bind(create_keybind(mainMod, "A"),     hl.dsp.exec_cmd(globals.appMenu))
