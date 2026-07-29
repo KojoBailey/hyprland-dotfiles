@@ -79,15 +79,13 @@ for i = 1, 10 do
 end
 
 --[[ Named Workspaces ]]
--- Obsidian
-hl.bind(create_keybind(mainMod, "O"), hl.dsp.focus({ workspace = "name:obsidian" }))
-hl.bind(create_keybind(mainMod, "SHIFT", "O"), hl.dsp.window.move({ workspace = "name:obsidian" }))
--- Claude
-hl.bind(create_keybind(mainMod, "C"), hl.dsp.focus({ workspace = "name:claude" }))
-hl.bind(create_keybind(mainMod, "SHIFT", "C"), hl.dsp.window.move({ workspace = "name:claude" }))
--- Discord
-hl.bind(create_keybind(mainMod, "D"), hl.dsp.focus({ workspace = "name:discord" }))
-hl.bind(create_keybind(mainMod, "SHIFT", "D"), hl.dsp.window.move({ workspace = "name:discord" }))
--- Browser
-hl.bind(create_keybind(mainMod, "B"), hl.dsp.focus({ workspace = "name:browser" }))
-hl.bind(create_keybind(mainMod, "SHIFT", "B"), hl.dsp.window.move({ workspace = "name:browser" }))
+local workspaceBinds = {
+	browser = "B",
+	notes = "N",
+	messenger = "M",
+	llm = "L",
+}
+for name, bind in pairs(workspaceBinds) do
+	hl.bind(create_keybind(mainMod, bind), hl.dsp.focus({ workspace = "name:" .. name }))
+	hl.bind(create_keybind(mainMod, "SHIFT", bind), hl.dsp.window.move({ workspace = "name:" .. name }))
+end
