@@ -38,6 +38,8 @@ hl.bind("XF86Favorites", hl.dsp.exec_cmd(globals.lockScreen))
 hl.bind(create_keybind(mainMod, "A"),     hl.dsp.exec_cmd(globals.appMenu))
 -- launch projects menu
 hl.bind(create_keybind(mainMod, "P"),     hl.dsp.exec_cmd(globals.projectsMenu))
+-- launch config (options) menu
+hl.bind(create_keybind(mainMod, "O"),     hl.dsp.exec_cmd(globals.configMenu))
 -- launch command menu
 hl.bind(create_keybind(mainMod, "R"),     hl.dsp.exec_cmd(globals.cmdMenu))
 -- lauch terminal
