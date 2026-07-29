@@ -6,16 +6,23 @@ function create_keybind(...)
 	return table.concat({...}, " + ")
 end
 
--- # Top Row
-local volumeUp       = hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+--[[ Top Row ]]
+-- volume up
+hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
 	{ locked = true, repeating = true })
-local volumeDown     = hl.bind("XF86AudioLowerVolume",  hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+-- volume down
+hl.bind("XF86AudioLowerVolume",  hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
 	{ locked = true, repeating = true })
-local volumeMute     = hl.bind("XF86AudioMute",         hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
-local micMute        = hl.bind("XF86AudioMicMute",      hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"))
-local brightnessUp   = hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2%+"),
+-- volume mute
+hl.bind("XF86AudioMute",         hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
+-- mic mute
+hl.bind("XF86AudioMicMute",      hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"))
+	:set_enabled(false)
+-- brightness up
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2%+"),
 	{ locked = true, repeating = true })
-local brightnessDown = hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2%-"),
+-- brightness down
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2%-"),
 	{ locked = true, repeating = true })
 
 -- # Account
@@ -26,9 +33,9 @@ local lockScreen = hl.bind("XF86Favorites", hl.dsp.exec_cmd(globals.lockScreen))
 
 -- # Launching Apps
 local launchAppMenu        = hl.bind(create_keybind(mainMod, "A"),     hl.dsp.exec_cmd(globals.appMenu))
+local launchProjectsMenu   = hl.bind(create_keybind(mainMod, "P"),     hl.dsp.exec_cmd(globals.projectsMenu))
 local launchCmdMenu        = hl.bind(create_keybind(mainMod, "R"),     hl.dsp.exec_cmd(globals.cmdMenu))
 local launchTerminal       = hl.bind(create_keybind(mainMod, "Q"),     hl.dsp.exec_cmd(globals.terminal))
-local launchProjecs        = hl.bind(create_keybind(mainMod, "P"),     hl.dsp.exec_cmd(globals.projectsTerminal))
 local launchFileManager    = hl.bind(create_keybind(mainMod, "E"),     hl.dsp.exec_cmd(globals.fileManager))
 local screenshotAreaBind   = hl.bind(create_keybind("Print"),          hl.dsp.exec_cmd(globals.screenshotAreaTool))
 local screenshotScreenBind = hl.bind(create_keybind("SHIFT", "Print"), hl.dsp.exec_cmd(globals.screenshotScreenTool))
