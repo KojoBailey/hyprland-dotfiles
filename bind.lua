@@ -25,41 +25,60 @@ hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2%+"
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2%-"),
 	{ locked = true, repeating = true })
 
--- # Account
+--[[ Account ]]
 local logoutCmd = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
-local logout = hl.bind(create_keybind(mainMod, "M"), hl.dsp.exec_cmd(logoutCmd))
+-- logout
+hl.bind(create_keybind(mainMod, "M"), hl.dsp.exec_cmd(logoutCmd))
 	:set_enabled(false)
-local lockScreen = hl.bind("XF86Favorites", hl.dsp.exec_cmd(globals.lockScreen))
+-- lock screen
+hl.bind("XF86Favorites", hl.dsp.exec_cmd(globals.lockScreen))
 
--- # Launching Apps
-local launchAppMenu        = hl.bind(create_keybind(mainMod, "A"),     hl.dsp.exec_cmd(globals.appMenu))
-local launchProjectsMenu   = hl.bind(create_keybind(mainMod, "P"),     hl.dsp.exec_cmd(globals.projectsMenu))
-local launchCmdMenu        = hl.bind(create_keybind(mainMod, "R"),     hl.dsp.exec_cmd(globals.cmdMenu))
-local launchTerminal       = hl.bind(create_keybind(mainMod, "Q"),     hl.dsp.exec_cmd(globals.terminal))
-local launchFileManager    = hl.bind(create_keybind(mainMod, "E"),     hl.dsp.exec_cmd(globals.fileManager))
-local screenshotAreaBind   = hl.bind(create_keybind("Print"),          hl.dsp.exec_cmd(globals.screenshotAreaTool))
-local screenshotScreenBind = hl.bind(create_keybind("SHIFT", "Print"), hl.dsp.exec_cmd(globals.screenshotScreenTool))
+--[[ Launching Apps ]]
+-- launch app menu
+hl.bind(create_keybind(mainMod, "A"),     hl.dsp.exec_cmd(globals.appMenu))
+-- launch projects menu
+hl.bind(create_keybind(mainMod, "P"),     hl.dsp.exec_cmd(globals.projectsMenu))
+-- launch command menu
+hl.bind(create_keybind(mainMod, "R"),     hl.dsp.exec_cmd(globals.cmdMenu))
+-- lauch terminal
+hl.bind(create_keybind(mainMod, "Q"),     hl.dsp.exec_cmd(globals.terminal))
+-- launch file manager
+hl.bind(create_keybind(mainMod, "E"),     hl.dsp.exec_cmd(globals.fileManager))
+-- screenshot selected area
+hl.bind(create_keybind("Print"),          hl.dsp.exec_cmd(globals.screenshotAreaTool))
+-- screenshot entire screen
+hl.bind(create_keybind("SHIFT", "Print"), hl.dsp.exec_cmd(globals.screenshotScreenTool))
 
--- # Window Control
-local closeWindow        = hl.bind(create_keybind(mainMod, "W"),         hl.dsp.window.close())
-local makeWindowFloating = hl.bind(create_keybind(mainMod, "F"),         hl.dsp.window.float())
-local moveWindow         = hl.bind(create_keybind(mainMod, "mouse:272"), hl.dsp.window.drag())
-local resizeWindow       = hl.bind(create_keybind(mainMod, "mouse:273"), hl.dsp.window.resize())
+--[[ Window Control ]]
+-- close window
+hl.bind(create_keybind(mainMod, "W"),         hl.dsp.window.close())
+-- make window floating
+hl.bind(create_keybind(mainMod, "F"),         hl.dsp.window.float())
+-- move window
+hl.bind(create_keybind(mainMod, "mouse:272"), hl.dsp.window.drag())
+-- resize window
+hl.bind(create_keybind(mainMod, "mouse:273"), hl.dsp.window.resize())
 
--- # Window Focus
-local moveFocusLeft = hl.bind(create_keybind(mainMod, "left"),  hl.dsp.focus({ direction = "left" }))
-local moveFocusLeft = hl.bind(create_keybind(mainMod, "right"), hl.dsp.focus({ direction = "right" }))
-local moveFocusLeft = hl.bind(create_keybind(mainMod, "up"),    hl.dsp.focus({ direction = "up" }))
-local moveFocusLeft = hl.bind(create_keybind(mainMod, "down"),  hl.dsp.focus({ direction = "down" }))
+--[[ Window Focus ]]
+-- shift window focus left
+hl.bind(create_keybind(mainMod, "left"),  hl.dsp.focus({ direction = "left" }))
+-- shift window focus right
+hl.bind(create_keybind(mainMod, "right"), hl.dsp.focus({ direction = "right" }))
+-- shift window focus up
+hl.bind(create_keybind(mainMod, "up"),    hl.dsp.focus({ direction = "up" }))
+-- shift window focus down
+hl.bind(create_keybind(mainMod, "down"),  hl.dsp.focus({ direction = "down" }))
 
--- # Workspaces
+--[[ Workspaces ]]
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to 0
-	local switchToWorkspace = hl.bind(create_keybind(mainMod, key),          hl.dsp.focus({ workspace = i }))
-	local moveToWorkspace   = hl.bind(create_keybind(mainMod, "SHIFT", key), hl.dsp.window.move({ workspace = i }))
+	-- switch to workspace
+	hl.bind(create_keybind(mainMod, key),          hl.dsp.focus({ workspace = i }))
+	-- move to worksapce
+	hl.bind(create_keybind(mainMod, "SHIFT", key), hl.dsp.window.move({ workspace = i }))
 end
 
--- # Special Workspaces
+--[[ Named Workspaces ]]
 -- Obsidian
 hl.bind(create_keybind(mainMod, "O"), hl.dsp.focus({ workspace = "name:obsidian" }))
 hl.bind(create_keybind(mainMod, "SHIFT", "O"), hl.dsp.window.move({ workspace = "name:obsidian" }))
