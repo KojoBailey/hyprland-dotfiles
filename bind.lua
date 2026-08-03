@@ -91,3 +91,9 @@ for name, bind in pairs(workspaceBinds) do
 	hl.bind(create_keybind(mainMod, bind), hl.dsp.focus({ workspace = "name:" .. name }))
 	hl.bind(create_keybind(mainMod, "SHIFT", bind), hl.dsp.window.move({ workspace = "name:" .. name }))
 end
+
+--[[ Workspace Control ]]
+-- move workspace to left monitor
+hl.bind(create_keybind(mainMod, "SHIFT", "left"),  hl.dsp.workspace.move({ monitor = "l" }))
+-- move workspace to right monitor
+hl.bind(create_keybind(mainMod, "SHIFT", "right"),  hl.dsp.workspace.move({ monitor = "r" }))
