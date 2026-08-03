@@ -18,3 +18,13 @@ hl.config({ xwayland = { force_zero_scaling = true } })
 hl.env("GDK_SCALE", 1.5)
 hl.env("QT_SCALE_FACTOR", 1.0)
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+
+hl.on("monitor.added", function(addedMonitor)
+	hl.notification.create({
+		text = "Connected monitor: " .. addedMonitor.name,
+		timeout = 4000,
+		icon = "ok"
+	})
+	-- BUG: Only swaps one workspace? Should swap all.
+	-- hl.dispatch(hl.dsp.workspace.swap_monitors({ monitor1 = "eDP-1", monitor2 = addedMonitor }))
+end)
