@@ -1,5 +1,6 @@
 hl.config({ general = { locale = "en_GB" } })
 
+local globals = require("globals")
 require("monitor")
 require("cursor")
 require("window")
