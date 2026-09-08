@@ -1,6 +1,6 @@
 local globals = require("globals")
 
-local mainMod = "SUPER" -- Windows key
+mainMod = "SUPER" -- Windows key
 
 function create_keybind(...)
 	return table.concat({...}, " + ")
